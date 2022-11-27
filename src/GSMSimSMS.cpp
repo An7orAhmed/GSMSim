@@ -45,9 +45,9 @@
 
 bool GSMSimSMS::initSMS() {
 	if(setTextMode(true)) {
-		if(setPreferredSMSStorage("ME", "ME", "ME")) {
+		if(setPreferredSMSStorage((char*)"ME", (char*)"ME", (char*)"ME")) {
 			if(setNewMessageIndication()) {
-				if(setCharset("IRA")) {
+				if(setCharset((char*)"IRA")) {
 					return true;
 				} else {
 					return false;
@@ -145,7 +145,7 @@ bool GSMSimSMS::send(char* number, char* message) {
 	str += _buffer;
 	//expect CMGS:xxx   , where xxx is a number,for the sending sms.
 	
-	return str;
+	//return str;
 	/**/
 	if (str.indexOf("+CMGS:") != -1) {
 		return true;
